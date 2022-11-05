@@ -8,12 +8,12 @@ const capitalize = (name) => {
 const kebabToPascal = kebabName => kebabName.split("-").map(s => capitalize(s)).join("");
 
 const indexFileLineTemplate = name =>
-`export { ${kebabToPascal(name)}Icon } from "./components/icons/${name}-icon";
+`export { default as ${kebabToPascal(name)}Icon } from "./components/icons/${name}-icon";
 `;
 
 const stream = fs.createWriteStream("./src/index.ts", "utf-8");
 Object.keys(feather.icons).map(name => {
   stream.write(indexFileLineTemplate(name));
 });
-stream.write(`export { Icon } from "./components/icon";\n`);
+stream.write(`export { default as Icon } from "./components/icon";\n`);
 stream.close();
