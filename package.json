@@ -1,11 +1,7 @@
 {
   "name": "qwik-feather-icons",
   "version": "0.0.1",
-<<<<<<< HEAD
-  "description": "Feather icons for the resumable Qwik framework",
-=======
   "description": "Feather icons for Qwik, the Resumable Framework",
->>>>>>> de675b8 (Update package information)
   "author": {
     "name": "Eduardo García Maleta",
     "email": "yeyon.personal@protonmail.com",
