@@ -1,7 +1,18 @@
 {
   "name": "qwik-feather-icons",
   "version": "0.0.1",
-  "description": "Create a reusable Qwik component library",
+  "description": "Feather icons for the resumable Qwik framework",
+  "author": {
+    "name": "Eduardo García Maleta",
+    "email": "yeyon.personal@protonmail.com",
+    "url": "https://github.com/yeyon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yeyon/qwik-feather-icons.git"
+  },
+  "license": "LICENSE",
+  "keywords": ["icon", "icons", "feather", "qwik"],
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
   "module": "./lib/index.qwik.mjs",
