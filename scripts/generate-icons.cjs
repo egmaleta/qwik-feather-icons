@@ -1,18 +1,12 @@
 const fs = require('fs');
 const feather = require('feather-icons');
 
-const capitalize = (name) => {
-  const first = name.at(0);
-  return first != undefined ? name.replace(first, first.toUpperCase()) : name;
-};
-const kebabToPascal = kebabName => kebabName.split("-").map(s => capitalize(s)).join("");
-
 const iconTemplate = icon =>
 `// THIS FILE WAS GENERATED
 import { component$ } from "@builder.io/qwik";
 import { IconProps } from "./icon-props";
 
-export const ${kebabToPascal(icon.name)}Icon = component$((props: IconProps) => {
+export default component$((props: IconProps) => {
   const size = props.size ?? 24;
   const color = props.color ?? "currentColor";
   const strokeWidth = props.strokeWidth ?? 2;
