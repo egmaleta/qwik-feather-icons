@@ -1,6 +1,6 @@
 {
   "name": "qwik-feather-icons",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Feather icons for Qwik, the Resumable Framework",
   "author": {
     "name": "Eduardo García Maleta",
@@ -12,7 +12,12 @@
     "url": "https://github.com/yeyon/qwik-feather-icons.git"
   },
   "license": "LICENSE",
-  "keywords": ["icon", "icons", "feather", "qwik"],
+  "keywords": [
+    "icon",
+    "icons",
+    "feather",
+    "qwik"
+  ],
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
   "module": "./lib/index.qwik.mjs",
