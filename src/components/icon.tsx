@@ -1,13 +1,13 @@
 import { component$ } from "@builder.io/qwik";
 import { IconContentMap } from "./icons-content";
-import { IconProps } from "./icons/icon-props";
+import { IconProps, DefaultIconProps } from "./icons/icon-props";
 
 interface NamedIconProps extends IconProps {
   name: string;
 }
 
 export default component$((props: NamedIconProps) => {
-  const size = props.size ?? 24;
+  const size = props.size ?? DefaultIconProps.size;
   
   return (
     <svg
@@ -16,11 +16,11 @@ export default component$((props: NamedIconProps) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={props.color ?? "currentColor"}
-      stroke-width={props.strokeWidth ?? 2}
-      stroke-linecap={props.strokeLineCap ?? "round"}
-      stroke-linejoin={props.strokeLineJoin ?? "round"}
-      class={`feather feather-${props.name} ${props.class ?? ""}`}
+      stroke={props.color ?? DefaultIconProps.color}
+      stroke-width={props.strokeWidth ?? DefaultIconProps.strokeWidth}
+      stroke-linecap={props.strokeLineCap ?? DefaultIconProps.strokeLineCap}
+      stroke-linejoin={props.strokeLineJoin ?? DefaultIconProps.strokeLineJoin}
+      class={`feather feather-${props.name} ${props.class ?? DefaultIconProps.class}`}
       dangerouslySetInnerHTML={IconContentMap[props.name]}
     ></svg>
   );

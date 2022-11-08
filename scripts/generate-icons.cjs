@@ -4,10 +4,10 @@ const feather = require('feather-icons');
 const iconTemplate = icon =>
 `// THIS FILE WAS GENERATED
 import { component$ } from "@builder.io/qwik";
-import { IconProps } from "./icon-props";
+import { IconProps, DefaultIconProps } from "./icon-props";
 
 export default component$((props: IconProps) => {
-  const size = props.size ?? 24;
+  const size = props.size ?? DefaultIconProps.size;
   
   return (
     <svg
@@ -16,11 +16,11 @@ export default component$((props: IconProps) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={props.color ?? "currentColor"}
-      stroke-width={props.strokeWidth ?? 2}
-      stroke-linecap={props.strokeLineCap ?? "round"}
-      stroke-linejoin={props.strokeLineJoin ?? "round"}
-      class={\`${icon.attrs.class} \${props.class ?? ""}\`}
+      stroke={props.color ?? DefaultIconProps.color}
+      stroke-width={props.strokeWidth ?? DefaultIconProps.strokeWidth}
+      stroke-linecap={props.strokeLineCap ?? DefaultIconProps.strokeLineCap}
+      stroke-linejoin={props.strokeLineJoin ?? DefaultIconProps.strokeLineJoin}
+      class={\`${icon.attrs.class} \${props.class ?? DefaultIconProps.class}\`}
     >${icon.contents}</svg>
   );
 });
