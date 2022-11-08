@@ -12,20 +12,21 @@ export default component$((props: NamedIconProps) => {
   const strokeWidth = props.strokeWidth ?? 2;
   const strokeLineCap = props.strokeLineCap ?? "round";
   const strokeLineJoin = props.strokeLineJoin ?? "round";
+  const classProp = props.class ?? "";
 
   return (
     <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke={color}
-    stroke-width={strokeWidth}
-    stroke-linecap={strokeLineCap}
-    stroke-linejoin={strokeLineJoin}
-    class={`feather feather-${props.name}`}
-    dangerouslySetInnerHTML={IconContentMap[props.name]}
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      stroke-width={strokeWidth}
+      stroke-linecap={strokeLineCap}
+      stroke-linejoin={strokeLineJoin}
+      class={`feather feather-${props.name} ${classProp}`}
+      dangerouslySetInnerHTML={IconContentMap[props.name]}
     ></svg>
   );
 });

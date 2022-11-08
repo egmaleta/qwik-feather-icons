@@ -3,5 +3,6 @@ export interface IconProps {
     color?: string,
     strokeWidth?: number,
     strokeLineCap?: string,
-    strokeLineJoin?: string
+    strokeLineJoin?: string,
+    class?: string
 }
