@@ -8,12 +8,7 @@ import { IconProps } from "./icon-props";
 
 export default component$((props: IconProps) => {
   const size = props.size ?? 24;
-  const color = props.color ?? "currentColor";
-  const strokeWidth = props.strokeWidth ?? 2;
-  const strokeLineCap = props.strokeLineCap ?? "round";
-  const strokeLineJoin = props.strokeLineJoin ?? "round";
-  const classProp = props.class ?? "";
-
+  
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,11 +16,11 @@ export default component$((props: IconProps) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={color}
-      stroke-width={strokeWidth}
-      stroke-linecap={strokeLineCap}
-      stroke-linejoin={strokeLineJoin}
-      class={\`${icon.attrs.class} \${classProp}\`}
+      stroke={props.color ?? "currentColor"}
+      stroke-width={props.strokeWidth ?? 2}
+      stroke-linecap={props.strokeLineCap ?? "round"}
+      stroke-linejoin={props.strokeLineJoin ?? "round"}
+      class={\`${icon.attrs.class} \${props.class ?? ""}\`}
     >${icon.contents}</svg>
   );
 });
