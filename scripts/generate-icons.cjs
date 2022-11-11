@@ -4,7 +4,7 @@ const feather = require('feather-icons');
 const iconTemplate = icon =>
 `// THIS FILE WAS GENERATED
 import { component$ } from "@builder.io/qwik";
-import { IconProps, DefaultIconProps } from "./icon-props";
+import { IconProps, DefaultIconProps } from "../../lib/icon-props";
 
 export default component$((props: IconProps) => {
   const size = props.size ?? DefaultIconProps.size;
