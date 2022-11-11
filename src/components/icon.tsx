@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { IconContentMap } from "./icons-content";
+import { IconContentMap } from "../lib/icons-content";
 import { IconProps, DefaultIconProps } from "../lib/icon-props";
 
 interface NamedIconProps extends IconProps {
