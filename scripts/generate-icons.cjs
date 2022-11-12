@@ -3,11 +3,12 @@ const feather = require('feather-icons');
 
 const iconTemplate = icon =>
 `// THIS FILE WAS GENERATED
-import { component$ } from "@builder.io/qwik";
-import { IconProps, DefaultIconProps } from "../../lib/icon-props";
+import { component$, useContext } from "@builder.io/qwik";
+import { IconProps, IconContext, defaultIconProps } from "../../lib/icon-props";
 
 export default component$((props: IconProps) => {
-  const size = props.size ?? DefaultIconProps.size;
+  const fallbackProps = useContext(IconContext, defaultIconProps);
+  const size = props.size ?? fallbackProps.size;
   
   return (
     <svg
@@ -16,11 +17,11 @@ export default component$((props: IconProps) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={props.color ?? DefaultIconProps.color}
-      stroke-width={props.strokeWidth ?? DefaultIconProps.strokeWidth}
-      stroke-linecap={props.strokeLineCap ?? DefaultIconProps.strokeLineCap}
-      stroke-linejoin={props.strokeLineJoin ?? DefaultIconProps.strokeLineJoin}
-      class={\`${icon.attrs.class} \${props.class ?? DefaultIconProps.class}\`}
+      stroke={props.color ?? fallbackProps.color}
+      stroke-width={props.strokeWidth ?? fallbackProps.strokeWidth}
+      stroke-linecap={props.strokeLineCap ?? fallbackProps.strokeLineCap}
+      stroke-linejoin={props.strokeLineJoin ?? fallbackProps.strokeLineJoin}
+      class={\`${icon.attrs.class} \${props.class ?? fallbackProps.class}\`}
     >${icon.contents}</svg>
   );
 });

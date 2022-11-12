@@ -1,13 +1,14 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
 import { IconContentMap } from "../lib/icons-content";
-import { IconProps, DefaultIconProps } from "../lib/icon-props";
+import { IconProps, IconContext, defaultIconProps } from "../lib/icon-props";
 
 interface NamedIconProps extends IconProps {
   name: string;
 }
 
 export default component$((props: NamedIconProps) => {
-  const size = props.size ?? DefaultIconProps.size;
+  const fallbackProps = useContext(IconContext, defaultIconProps);
+  const size = props.size ?? fallbackProps.size;
   
   return (
     <svg
@@ -16,11 +17,11 @@ export default component$((props: NamedIconProps) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={props.color ?? DefaultIconProps.color}
-      stroke-width={props.strokeWidth ?? DefaultIconProps.strokeWidth}
-      stroke-linecap={props.strokeLineCap ?? DefaultIconProps.strokeLineCap}
-      stroke-linejoin={props.strokeLineJoin ?? DefaultIconProps.strokeLineJoin}
-      class={`feather feather-${props.name} ${props.class ?? DefaultIconProps.class}`}
+      stroke={props.color ?? fallbackProps.color}
+      stroke-width={props.strokeWidth ?? fallbackProps.strokeWidth}
+      stroke-linecap={props.strokeLineCap ?? fallbackProps.strokeLineCap}
+      stroke-linejoin={props.strokeLineJoin ?? fallbackProps.strokeLineJoin}
+      class={`feather feather-${props.name} ${props.class ?? fallbackProps.class}`}
       dangerouslySetInnerHTML={IconContentMap[props.name]}
     ></svg>
   );
