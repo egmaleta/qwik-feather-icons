@@ -286,3 +286,4 @@ export { default as ZapIcon } from "./components/icons/zap-icon";
 export { default as ZoomInIcon } from "./components/icons/zoom-in-icon";
 export { default as ZoomOutIcon } from "./components/icons/zoom-out-icon";
 export { default as Icon } from "./components/icon";
+export { type IconProps, IconContext } from "./lib/icon-props";

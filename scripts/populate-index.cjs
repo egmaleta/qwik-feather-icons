@@ -16,4 +16,7 @@ Object.keys(feather.icons).map(name => {
   stream.write(indexFileLineTemplate(name));
 });
 stream.write(`export { default as Icon } from "./components/icon";\n`);
+
+stream.write(`export { type IconProps, IconContext } from "./lib/icon-props";\n`);
+
 stream.close();
