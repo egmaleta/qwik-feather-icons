@@ -84,7 +84,7 @@ Although is better to use the `<'Name'Icon />` variant (such as `<ThumbsUpIcon /
 
 #### `IconContext`
 
-Feather icons use Qwik Context to simply apply default `props` to all icons. Use `useContextProvider` and at the root of the app (or anywhere above the icons in the tree) and pass in a configuration object with props to be applied by default to all icons.
+Feather icons use Qwik Context to simply apply default `props` to all icons. Use `useContextProvider` at the root of the app (or anywhere above the icons in the tree) and pass in a configuration object with props to be applied by default to all icons.
 
 ```tsx
 import { component$, useContextProvider } from "@builder.io/qwik";
