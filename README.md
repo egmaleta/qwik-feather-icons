@@ -1,46 +1,45 @@
-# <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg> Feather Icons for Qwik
+# Feather Icons for Qwik
 
 ## What is Feather?
 
 Feather is a collection of simply beautiful open source icons. Each icon is designed on a 24x24 grid with an emphasis on simplicity, consistency, and flexibility.
 
-https://feathericons.com
+This icon library supports Feather Icons [v4.29.0](https://feathericons.com).
 
 ### Installation
 
 ```shell
-npm install qwik-feather-icons
+npm install --save qwik-feather-icons
 ```
 
 ### Usage
 
-> **Note:** using [thumbs-up icon](https://feathericons.com/?query=thumbs-up) just as an example.
+#### Include
 
-#### 1. Include
+You can import the icon(s) you need as usual:
 
 ```ts
 import { ThumbsUpIcon } from "qwik-feather-icons";
 ```
-or
+or import them all at once:
+
 ```ts
-import { Icon } from "qwik-feather-icons";
-```
+import * as IconPack from "qwik-feather-icons";
 
-#### 2. Use
+export const App = component$(() => {
+  return (
+    <div>
+      <IconPack.ThumbsUpIcon />
+      <IconPack.BatteryChargingIcon />
+    </div>
+  );
+});
 
-```tsx
-<ThumbsUpIcon ...props />
-```
-
-or
-
-```tsx
-<Icon name="thumbs-up" ...props />
 ```
 
 #### Props
 
-All components have these **optional** `props`:
+All icons have these optional `props`:
 
 ```ts
 export interface IconProps {
@@ -53,7 +52,7 @@ export interface IconProps {
 }
 ```
 
-With default values encapsulated in a `defaultIconProps` object:
+With default values defined in a `defaultIconProps` object:
 
 ```ts
 export const defaultIconProps: IconProps = {
@@ -66,11 +65,26 @@ export const defaultIconProps: IconProps = {
 };
 ```
 
-> **Important:** in most cases you should use `<'Name'Icon/>` components (such as `<ThumbsUpIcon/>`), they are just a wrapper around the actual inline `<svg>`.
+#### `Icon` Component
 
-#### Context
+This icon library has an `Icon` component with a required prop called `name`:
+```tsx
+import { Icon } from "qwik-feather-icons";
 
-Feather icons use Qwik Context to simply apply default `props` to all icons. Use `useContextProvider` at the root of the app (or anywhere above the icons in the tree) and pass in a configuration object with props to be applied by default to all icons.
+export const App = component$(() => {
+  return (
+    <div>
+      <Icon name="battery-charging" /> { /* equivalent to <BatteryChargingIcon /> */ }
+    </div>
+  );
+});
+```
+
+Although is better to use the `<'Name'Icon />` variant (such as `<ThumbsUpIcon />`) because it wraps the actual inline `<svg>`.
+
+#### `IconContext`
+
+Feather icons use Qwik Context to simply apply default `props` to all icons. Use `useContextProvider` and at the root of the app (or anywhere above the icons in the tree) and pass in a configuration object with props to be applied by default to all icons.
 
 ```tsx
 import { component$, useContextProvider } from "@builder.io/qwik";
@@ -90,8 +104,8 @@ export const App = component$(() => {
 
   return (
     <div>
-      <ThumbsDownIcon/> { /* huge (96px) hotpink icon */ }
-      <WifiOffIcon/>    { /* same here */ }
+      <ThumbsDownIcon /> { /* huge (96px) hotpink icon */ }
+      <WifiOffIcon />    { /* same here */ }
     </div>
   );
 });
@@ -104,5 +118,3 @@ This package is licensed under the [MIT License](https://github.com/yeyon/qwik-f
 ### Acknowledgment
 
 Thanks to **Cole Bemis** for the Feather Project. Here is his website https://colebemis.com/.
-
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
