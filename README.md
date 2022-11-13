@@ -53,10 +53,10 @@ export interface IconProps {
 }
 ```
 
-With default values encapsulated in `DefaultIconProps` object:
+With default values encapsulated in a `defaultIconProps` object:
 
 ```ts
-export const DefaultIconProps: IconProps = {
+export const defaultIconProps: IconProps = {
   size: 24,
   color: "currentColor",
   strokeWidth: 2,
@@ -67,6 +67,35 @@ export const DefaultIconProps: IconProps = {
 ```
 
 > **Important:** in most cases you should use `<'Name'Icon/>` components (such as `<ThumbsUpIcon/>`), they are just a wrapper around the actual inline `<svg>`.
+
+#### Context
+
+Feather icons use Qwik Context to simply apply default `props` to all icons. Use `useContextProvider` at the root of the app (or anywhere above the icons in the tree) and pass in a configuration object with props to be applied by default to all icons.
+
+```tsx
+import { component$, useContextProvider } from "@builder.io/qwik";
+import { IconContext, WifiOffIcon, ThumbsUpIcon } from "qwik-feather-icons";
+
+export const App = component$(() => {
+  const newDefaultProps = {
+    size: 96,
+    color: "hotpink",
+    strokeWidth: 2,
+    strokeLineCap: "round",
+    strokeLineJoin: "round",
+    class: "just an example"
+  };
+
+  useContextProvider(IconContext, newDefaultProps);
+
+  return (
+    <div>
+      <ThumbsDownIcon/> { /* huge (96px) hotpink icon */ }
+      <WifiOffIcon/>    { /* same here */ }
+    </div>
+  );
+});
+```
 
 ### License
 
