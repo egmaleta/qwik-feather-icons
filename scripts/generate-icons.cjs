@@ -1,6 +1,11 @@
 const fs = require('fs');
 const feather = require('feather-icons');
 
+const capitalize = (name) => {
+  const first = name.at(0);
+  return first != undefined ? name.replace(first, first.toUpperCase()) : name;
+};
+
 const iconTemplate = icon =>
 `// THIS FILE WAS GENERATED
 import { component$, useContext } from "@builder.io/qwik";
@@ -22,6 +27,7 @@ export default component$((props: IconProps) => {
       stroke-linecap={props.strokeLineCap ?? fallbackProps.strokeLineCap}
       stroke-linejoin={props.strokeLineJoin ?? fallbackProps.strokeLineJoin}
       class={\`${icon.attrs.class} \${props.class ?? fallbackProps.class}\`}
+      aria-label="${[...icon.name.split("-").map(s => capitalize(s))].join(" ")} Icon"
     >${icon.contents}</svg>
   );
 });
