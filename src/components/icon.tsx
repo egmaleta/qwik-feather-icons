@@ -6,9 +6,17 @@ interface NamedIconProps extends IconProps {
   name: string;
 }
 
-export default component$((props: NamedIconProps) => {
+export default component$(({name, ...props}: NamedIconProps) => {
   const fallbackProps = useContext(IconContext, defaultIconProps);
-  const size = props.size ?? fallbackProps.size;
+
+  const {
+    size,
+    color,
+    strokeWidth,
+    strokeLineCap,
+    strokeLineJoin,
+    ...restProps
+  } = { ...fallbackProps, ...props };
   
   return (
     <svg
@@ -17,12 +25,13 @@ export default component$((props: NamedIconProps) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={props.color ?? fallbackProps.color}
-      stroke-width={props.strokeWidth ?? fallbackProps.strokeWidth}
-      stroke-linecap={props.strokeLineCap ?? fallbackProps.strokeLineCap}
-      stroke-linejoin={props.strokeLineJoin ?? fallbackProps.strokeLineJoin}
-      class={`feather feather-${props.name} ${props.class ?? fallbackProps.class}`}
-      dangerouslySetInnerHTML={IconContentMap[props.name]}
+      stroke={color}
+      stroke-width={strokeWidth}
+      stroke-linecap={strokeLineCap}
+      stroke-linejoin={strokeLineJoin}
+      {...restProps}
+      class={`feather feather-${name} ${restProps.class ?? ''}`}
+      dangerouslySetInnerHTML={IconContentMap[name]}
     ></svg>
   );
 });

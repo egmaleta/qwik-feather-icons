@@ -1,12 +1,11 @@
-import { createContext } from "@builder.io/qwik";
+import { createContext, QwikDOMAttributes } from "@builder.io/qwik";
 
-export interface IconProps {
+export interface IconProps extends QwikDOMAttributes {
   size?: number,
   color?: string,
   strokeWidth?: number,
   strokeLineCap?: string,
-  strokeLineJoin?: string,
-  class?: string
+  strokeLineJoin?: string
 }
 
 export const IconContext = createContext<IconProps>("icon-context");
@@ -16,6 +15,5 @@ export const defaultIconProps: IconProps = {
   color: "currentColor",
   strokeWidth: 2,
   strokeLineCap: "round",
-  strokeLineJoin: "round",
-  class: ""
+  strokeLineJoin: "round"
 };

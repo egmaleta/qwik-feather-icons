@@ -38,7 +38,7 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "build.icons": "node scripts/generate-icons.cjs && node scripts/generate-icons-map.cjs && node scripts/populate-index.cjs && qwik build",
+    "build.icons": "node scripts/generate-icons.mjs && node scripts/generate-icons-map.mjs && node scripts/populate-index.mjs && qwik build",
     "build": "qwik build",
     "build.lib": "vite build --mode lib",
     "build.types": "tsc --emitDeclarationOnly",
