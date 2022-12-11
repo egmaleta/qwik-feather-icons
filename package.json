@@ -4,12 +4,12 @@
   "description": "Feather icons for Qwik, the Resumable Framework",
   "author": {
     "name": "Eduardo García Maleta",
-    "email": "yeyon.personal@protonmail.com",
-    "url": "https://github.com/yeyon"
+    "email": "egmaleta@proton.me",
+    "url": "https://github.com/egmaleta"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yeyon/qwik-feather-icons.git"
+    "url": "https://github.com/egmaleta/qwik-feather-icons.git"
   },
   "license": "LICENSE",
   "keywords": [
@@ -46,25 +46,25 @@
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
-    "lint": "eslint src/**/*.ts*",
+    "lint": "eslint \"src/**/*.ts*\"",
     "release": "np",
     "start": "vite --open --mode ssr",
     "qwik": "qwik",
     "test": "echo \"no tests 4 now\""
   },
   "devDependencies": {
-    "@builder.io/qwik": "0.13.1",
-    "@types/eslint": "8.4.9",
+    "@builder.io/qwik": "0.15.2",
+    "@types/eslint": "8.4.10",
     "@types/node": "latest",
-    "@typescript-eslint/eslint-plugin": "5.42.0",
-    "@typescript-eslint/parser": "5.42.0",
-    "eslint": "8.26.0",
+    "@typescript-eslint/eslint-plugin": "5.45.0",
+    "@typescript-eslint/parser": "5.45.0",
+    "eslint": "8.28.0",
     "eslint-plugin-qwik": "latest",
     "feather-icons": "^4.29.0",
-    "node-fetch": "3.2.10",
+    "node-fetch": "3.3.0",
     "np": "7.6.1",
-    "prettier": "2.7.1",
-    "typescript": "4.8.4",
-    "vite": "3.2.2"
+    "prettier": "2.8.0",
+    "typescript": "4.9.3",
+    "vite": "3.2.4"
   }
 }
