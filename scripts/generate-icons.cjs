@@ -33,6 +33,8 @@ export default component$((props: IconProps) => {
 });
 `;
 
+fs.mkdirSync('./src/components/icons/', { recursive: true });
+
 Object.keys(feather.icons).map(name => {
   fs.writeFileSync(`./src/components/icons/${name}-icon.tsx`, iconTemplate(feather.icons[name]), "utf-8")
 });
