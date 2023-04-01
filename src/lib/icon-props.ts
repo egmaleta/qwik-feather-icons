@@ -1,4 +1,4 @@
-import { createContext } from "@builder.io/qwik";
+import { createContextId } from "@builder.io/qwik";
 
 export interface IconProps {
   size?: number,
@@ -9,7 +9,7 @@ export interface IconProps {
   class?: string
 }
 
-export const IconContext = createContext<IconProps>("icon-context");
+export const IconContext = createContextId<IconProps>("icon-context");
 
 export const defaultIconProps: IconProps = {
   size: 24,
